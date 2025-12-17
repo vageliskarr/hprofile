@@ -13,6 +13,15 @@ jobs:
       - name: Checkstyle
         run: mvn checkstyle:checkstyle
 
+      - name: Check secrets availability
+        run: |
+          echo "has_org=${{ secrets.SONAR_ORGANIZATION != '' }}"
+          echo "has_key=${{ secrets.SONAR_PROJECT_KEY != '' }}"
+          echo "has_url=${{ secrets.SONAR_URL != '' }}"
+          echo "has_token=${{ secrets.SONAR_TOKEN != '' }}"
+
+
+
       - name: Debug Sonar
         run: |
           echo "ORG=${{ secrets.SONAR_ORGANIZATION }}"
