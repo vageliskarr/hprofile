@@ -13,6 +13,13 @@ jobs:
       - name: Checkstyle
         run: mvn checkstyle:checkstyle
 
+      - name: Debug Sonar
+        run: |
+          echo "ORG=${{ secrets.SONAR_ORGANIZATION }}"
+          echo "KEY=${{ secrets.SONAR_PROJECT_KEY }}"
+          echo "URL=${{ secrets.SONAR_URL }}"
+
+
       # Setup java 11 to be default (sonar-scanner requirement as of 5.x)
       - name: Set Java 11
         uses: actions/setup-java@v3
@@ -20,6 +27,8 @@ jobs:
           distribution: 'temurin'  # See 'Supported distributions' section
           java-version: '11'
  
+
+
       # Setup sonar-scanner
       - name: Setup SonarQube
         uses: warchant/setup-sonar-scanner@v8
