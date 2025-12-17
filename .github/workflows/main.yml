@@ -13,29 +13,6 @@ jobs:
       - name: Checkstyle
         run: mvn checkstyle:checkstyle
 
-      - name: Check org both spellings
-        run: |
-          echo "ORG1=${{ secrets.SONAR_ORGANIZATION != '' }}"
-          echo "ORG2=${{ secrets.SONAR_ORGINIZATION != '' }}"
-
-
-
-      - name: Check secrets availability
-        run: |
-          echo "has_org=${{ secrets.SONAR_ORGANIZATION != '' }}"
-          echo "has_key=${{ secrets.SONAR_PROJECT_KEY != '' }}"
-          echo "has_url=${{ secrets.SONAR_URL != '' }}"
-          echo "has_token=${{ secrets.SONAR_TOKEN != '' }}"
-
-
-
-      - name: Debug Sonar
-        run: |
-          echo "ORG=${{ secrets.SONAR_ORGINIZATION }}"
-          echo "KEY=${{ secrets.SONAR_PROJECT_KEY }}"
-          echo "URL=${{ secrets.SONAR_URL }}"
-
-
       # Setup java 11 to be default (sonar-scanner requirement as of 5.x)
       - name: Set Java 17
         uses: actions/setup-java@v3
@@ -43,7 +20,6 @@ jobs:
           distribution: 'temurin'  # See 'Supported distributions' section
           java-version: '17'
  
-
 
       # Setup sonar-scanner
       - name: Setup SonarQube
