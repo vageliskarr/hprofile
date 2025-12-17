@@ -31,7 +31,7 @@ jobs:
 
       - name: Debug Sonar
         run: |
-          echo "ORG=${{ secrets.SONAR_ORGANIZATION }}"
+          echo "ORG=${{ secrets.SONAR_ORGINIZATION }}"
           echo "KEY=${{ secrets.SONAR_PROJECT_KEY }}"
           echo "URL=${{ secrets.SONAR_URL }}"
 
@@ -56,6 +56,6 @@ jobs:
         run: sonar-scanner
             -Dsonar.host.url=${{ secrets.SONAR_URL }}
             -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-            -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
+            -Dsonar.organization=${{ secrets.SONAR_ORGINIZATION }}
             -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
             -Dsonar.sources=$GITHUB_WORKSPACE
