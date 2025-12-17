@@ -21,8 +21,4 @@ jobs:
          java-version: '11'
 
       - name: Build + SonarCloud (Maven)
-        run: mvn -B clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
-          -Dsonar.host.url=${{ secrets.SONAR_URL }} \
-          -Dsonar.organization=${{ secrets.SONAR_ORGINIZATION }} \
-          -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }} \
-          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+        run: mvn -B clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.host.url=${{ secrets.SONAR_URL }} -Dsonar.organization=${{ secrets.SONAR_ORGINIZATION }} -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }} -Dsonar.login=${{ secrets.SONAR_TOKEN }}
