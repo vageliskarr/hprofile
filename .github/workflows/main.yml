@@ -13,6 +13,13 @@ jobs:
       - name: Checkstyle
         run: mvn checkstyle:checkstyle
 
+      - name: Check org both spellings
+        run: |
+          echo "ORG1=${{ secrets.SONAR_ORGANIZATION != '' }}"
+          echo "ORG2=${{ secrets.SONAR_ORGINIZATION != '' }}"
+
+
+
       - name: Check secrets availability
         run: |
           echo "has_org=${{ secrets.SONAR_ORGANIZATION != '' }}"
