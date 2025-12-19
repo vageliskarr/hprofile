@@ -1,5 +1,5 @@
-FROM amazoncorretto:11 AS BUILD_IMAGE
-RUN apt update && apt install maven -y
+FROM eclipse-temurin:11-jdk AS build_image
+RUN apt-get update && apt-get install -y maven
 COPY ./ vprofile-project
 RUN cd vprofile-project &&  mvn install 
 
