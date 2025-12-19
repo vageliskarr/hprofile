@@ -38,7 +38,7 @@
         }
     ],
     "cpu": "1024",
-    "enableFaultInjection": false,
+     //  "enableFaultInjection": false,
     "executionRoleArn": "arn:aws:iam::800762439524:role/ecsTaskExecutionRole",
     "family": "vproapp-act-tdef",
     "memory": "2048",
